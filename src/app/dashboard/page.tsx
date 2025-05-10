@@ -55,7 +55,8 @@ export default function LocalStatsWidget() {
   const scenarioStatusCounts = scenarios.reduce((acc: Record<string, number>, s) => {
     acc[s.status] = (acc[s.status] || 0) + 1;
     return acc;
-  }, []);
+  }, {});
+
   const scenarioStatusData = Object.entries(scenarioStatusCounts).map(([status, count]) => ({
     name: status,
     value: count,
